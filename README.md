@@ -23,17 +23,15 @@ Several files need to be modified.
 
 ```
 // uncomment dtparam=i2s=on
-sudo nano /boot/config.txt
+$ sudo nano /boot/config.txt
 
 // add line snd-bcm2835
-sudo nano /etc/modules
+$ sudo nano /etc/modules
 
-sudo reboot
+$ sudo reboot
 
 // confirm modules are loaded
-lsmod | grep snd
-
-// returns
+$ lsmod | grep snd
 snd_soc_simple_card     6790  0 
 snd_soc_bcm2835_i2s     6354  2 
 snd_soc_core          125885  2 snd_soc_bcm2835_i2s,snd_soc_simple_card
