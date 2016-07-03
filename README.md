@@ -22,16 +22,14 @@ The following is taken from [Paul Creaser's writeup](https://paulcreaser.wordpre
 Several files need to be modified.  
 
 ```
-// uncomment dtparam=i2s=on
-$ sudo nano /boot/config.txt
+$ uname -a
+Linux raspberrypi 4.4.14-v7+ #896 SMP Sat Jul 2 15:09:43 BST 2016 armv7l GNU/Linux
 
-// add line snd-bcm2835
-$ sudo nano /etc/modules
 
-$ sudo reboot
-
-// confirm modules are loaded
-$ lsmod | grep snd
+$ sudo nano /boot/config.txt    # uncomment dtparam=i2s=on
+$ sudo nano /etc/modules        # add line snd-bcm2835
+$ sudo reboot                   # reboot RPi
+$ lsmod | grep snd              # confirm modules are loaded
 snd_soc_simple_card     6790  0 
 snd_soc_bcm2835_i2s     6354  2 
 snd_soc_core          125885  2 snd_soc_bcm2835_i2s,snd_soc_simple_card
