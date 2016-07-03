@@ -65,7 +65,7 @@ $ sudo apt-get install libncurses5-dev
 $ sudo apt-get update
 $ sudo rpi-update
 ```
-Get the kernel source and compile.  This takes a very long time on an RPi.  I believe there are ways of doing this on a local machine but I didnt try.  I would recommend installing the application '''sudo apt-get install screen'''.  
+Get the kernel source and compile.  This takes a very long time on an RPi.  I believe there are ways of doing this on a local machine but I didnt try.  I would recommend installing the application ```sudo apt-get install screen```.  
 
 ```
 $ sudo whet https://raw.githubusercontent.com/rpi-source/master/rpi-source -O /usr/bin/rpi-source
