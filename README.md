@@ -111,7 +111,8 @@ $ dmesg | tail
 ```
 ### Test
 
-Record a file on the RPi and copy it to
+Record a file on the RPi and copy it to my local machine for listening.  My machine recorded only one channel despite the code specifiying two channels.  I'm pretty sure only one channel should work.  Further investigation required.
+
 ```
 $ arecord -l
 **** List of CAPTURE Hardware Devices ****
