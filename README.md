@@ -21,18 +21,19 @@ The following is taken from [Paul Creaser's writeup](https://paulcreaser.wordpre
 ### i2s Configuration
 Several files need to be modified.  
 
-1) modify '''/boot/config.txt''' and uncomment the line '''dtparam=i2s=on'''
-2) modify '''/etc/modules''' to add the line '''snd-bcm2835
-
-Then:
-
 ```
+// uncomment dtparam=i2s=on
+sudo nano /boot/config.txt
+
+// add line snd-bcm2835
+sudo nano /etc/modules
+
 sudo reboot
-lsmod | grep snd
-```
-which returns 
 
-```
+// confirm modules are loaded
+lsmod | grep snd
+
+// returns
 snd_soc_simple_card     6790  0 
 snd_soc_bcm2835_i2s     6354  2 
 snd_soc_core          125885  2 snd_soc_bcm2835_i2s,snd_soc_simple_card
