@@ -36,14 +36,14 @@ BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
 ```
 
 ### i2s Configuration
-Several files need to be modified.  
+Several files need to be modified.  Uncomment ```#dtparam=i2s=on``` in ```/boot/config.txt``` and add ```snd-bcm2835``` to ```/etc/modules```.
 
 ```
 $ uname -a
 Linux raspberrypi 4.4.14-v7+ #896 SMP Sat Jul 2 15:09:43 BST 2016 armv7l GNU/Linux
 
-$ sudo nano /boot/config.txt    # uncomment dtparam=i2s=on
-$ sudo nano /etc/modules        # add line snd-bcm2835
+$ sudo sed -i 's/#dtparam=i2s=on/dtparam=i2s=on/' /boot/config.txt
+$ echo 'snd-bcm2835' | sudo tee --append /etc/modules > /dev/null
 
 $ sudo reboot                   # reboot RPi
 
