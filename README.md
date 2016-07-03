@@ -7,12 +7,16 @@ There has been poor documentation online about using i2s on a RaspberryPi and in
 
 The following documentation used the ICS43432 MEMs microphone with a breakout board on an RPi 3.  Mirophone documentation can be found [here](https://www.embeddedmasters.com/datasheets/embedded/EMMIC-ICS43432-DS.pdf).  Header pins were soldered to the breakout board.  Unfortunately the breakout board was poorly designed and in order to properly install the header pins, the pin labels were covered.  Regardless, the connection uses Pulse Code Modulation which requires four GPIO pins from the RPi.  The PCM setup can be found [here](https://pinout.xyz/pinout/pcm).  The connection is as follows:
 
-- VCC - 3.3v
-- G - Gnd
-- L/R - Gnd (this is used for channel selection. Connect to 3.3 or GND)
-- SCK - BCM 18 (pin 12)
-- SD - BCM 19 (pin 35)
-- WS - BCM 20 (pin 38)
+```
+Mic - RPi
+---------
+VCC - 3.3v
+Gnd - Gnd
+L/R - Gnd (this is used for channel selection. Connect to 3.3 or GND)
+SCK - BCM 18 (pin 12)
+SD  - BCM 19 (pin 35)
+WS  - BCM 20 (pin 38)
+```
 
 ## Software Requirements
 
@@ -71,12 +75,16 @@ $ rpi-source
 
 ### Compile the i2S module
 
+Mount the previously compiled kernal and check that the module name matches the source code ```3f203000.i2s```.
 ```
 $ sudo mount -t debugfs debugs /sys/kernel/debug
 $ sudo cat /sys/kernel/debug/asoc/platforms
 3f203000.i2s
 snd-soc-dummy
 ```
+
+Now get the module and compile against the kernel source code.  The modeule was written by [Paul Creaser](https://github.com/PaulCreaser/rpi-i2s-audio).  In his documentation (and in the code itself), he states to modify the code changing certain names and changing the master/slave mode.  I didnt understand what to change - so I did not change anything and everything seems to work fine.  If someone wants to further elaborate on this please do so!!!
+
 ```
 $ git clone https://github.com/PaulCreaser/rpi-i2s-audio
 $ cd rpi-i2s-audio
@@ -85,7 +93,6 @@ $ sudo insmod my_loader.ko
 ```
 
 Verify the module was loaded:
-
 ```
 $ lsmod | grep my_loader
 my_loader               1789  0 
@@ -101,4 +108,19 @@ $ dmesg | tail
 [36934.903444] register platform device 'asoc-simple-card': 0
 [36934.903455] Hello World :)
 [36934.921322] asoc-simple-card asoc-simple-card.0: snd-soc-dummy-dai <-> 3f203000.i2s mapping ok
+```
+### Test
+
+Record a file on the RPi and copy it to
+```
+$ arecord -l
+**** List of CAPTURE Hardware Devices ****
+card 1: sndrpisimplecar [snd_rpi_simple_card], device 0: simple-card_codec_link snd-soc-dummy-dai-0 []
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+
+$ arecord -D hw:1 -c2 -r 48000 -f S32_LE -t wav -v file.wav
+
+# On my local machine - Move file from RPi to local machine for listening
+$ scp pi@<local-ip>:/home/pi/file.wav ~/Desktop/file.wav
 ```
