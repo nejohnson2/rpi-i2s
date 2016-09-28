@@ -17,6 +17,7 @@ SCK - BCM 18 (pin 12)
 SD  - BCM 19 (pin 35)
 WS  - BCM 20 (pin 38)
 ```
+![INCS43432 Breakoutboard](incs43432_breakout.png)
 
 ## Software Requirements
 
