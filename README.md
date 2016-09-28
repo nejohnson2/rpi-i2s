@@ -6,7 +6,7 @@ There has been poor documentation online about using i2s on a RaspberryPi and in
 ## Hardware Setup
 
 The following documentation used the ICS43432 MEMs microphone with a breakout board on an RPi 3.  Mirophone documentation can be found [here](https://www.embeddedmasters.com/datasheets/embedded/EMMIC-ICS43432-DS.pdf).  Header pins were soldered to the breakout board.  Unfortunately the breakout board was poorly designed and in order to properly install the header pins, the pin labels were covered.  Regardless, the connection uses Pulse Code Modulation which requires four GPIO pins from the RPi.  The PCM setup can be found [here](https://pinout.xyz/pinout/pcm).  The connection is as follows:
-<img src="rpi-pins.png" align="right" width="252" height="335" >
+<img src="rpi-pins.png" align="right" width="167" height="233" >
 
 
 ```
