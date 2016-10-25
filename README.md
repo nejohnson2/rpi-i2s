@@ -84,10 +84,11 @@ $ sudo rpi-update
 Get the kernel source and compile.  This takes a very long time on an RPi.  I believe there are ways of doing this on a local machine but I didnt try.  I would recommend installing the application ```sudo apt-get install screen```.  
 
 ```
-$ sudo wget https://raw.githubusercontent.com/rpi-source/master/rpi-source -O /usr/bin/rpi-source
+$ sudo wget https://raw.githubusercontent.com/notro/rpi-source/master/rpi-source -O /usr/bin/rpi-source
 $ sudo chmod +x /usr/bin/rpi-source
 $ rpi-source
 ```
+> Note: The ```rpi-source``` file downloaded here is different from what Paul used.  It seems there has been an update and the new source is being used above.  Information about ```rpi-source``` can be found [here](https://github.com/notro/rpi-source/wiki).
 
 ### Compile the i2S module
 
