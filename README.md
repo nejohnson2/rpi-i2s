@@ -73,7 +73,7 @@ $ sudo rpi-update
 $ gcc --version
 gcc (Raspbian 4.9.2-10) 4.9.2
 
-# mis dependencies that needed to be installed
+# mics dependencies that needed to be installed
 $ sudo apt-get install bc
 $ sudo apt-get install libncurses5-dev
 
@@ -84,7 +84,7 @@ $ sudo rpi-update
 Get the kernel source and compile.  This takes a very long time on an RPi.  I believe there are ways of doing this on a local machine but I didnt try.  I would recommend installing the application ```sudo apt-get install screen```.  
 
 ```
-$ sudo whet https://raw.githubusercontent.com/rpi-source/master/rpi-source -O /usr/bin/rpi-source
+$ sudo wget https://raw.githubusercontent.com/rpi-source/master/rpi-source -O /usr/bin/rpi-source
 $ sudo chmod +x /usr/bin/rpi-source
 $ rpi-source
 ```
