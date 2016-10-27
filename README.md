@@ -86,6 +86,7 @@ Get the kernel source and compile.  This takes a very long time on an RPi.  I be
 ```
 $ sudo wget https://raw.githubusercontent.com/notro/rpi-source/master/rpi-source -O /usr/bin/rpi-source
 $ sudo chmod +x /usr/bin/rpi-source
+$ /usr/bin/rpi-source -q --tag-update
 $ rpi-source
 ```
 > Note: The ```rpi-source``` file downloaded here is different from what Paul used.  It seems there has been an update and the new source is being used above.  Information about ```rpi-source``` can be found [here](https://github.com/notro/rpi-source/wiki).
