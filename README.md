@@ -127,6 +127,23 @@ $ dmesg | tail
 [36934.903455] Hello World :)
 [36934.921322] asoc-simple-card asoc-simple-card.0: snd-soc-dummy-dai <-> 3f203000.i2s mapping ok
 ```
+
+### Autoload Module on Startup
+
+Here is the [Linux Kernel Module Programming Guide](http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119) where you can read all about modules in Linux.  A great resource but dont dive in too depp!!!
+
+First copy the ```module.ko``` file to the folder ```/lib/modules/<version>```:
+```
+$ sudo cp my_loader.ko /lib/modules/$(uname -r)
+```
+Then you need to add the module to the ```/etc/modules``` list, then reload and reboot!
+```
+$ echo 'my_loader' | sudo tee --append /etc/modules > /dev/null
+$ sudo depmod -a
+$ sudo modprobe my_loader
+$ sudo reboot
+```
+
 ### Test
 
 Record a file on the RPi and copy it to my local machine for listening.  My machine recorded only one channel despite the code specifiying two channels.  I'm pretty sure only one channel should work.  Further investigation required.
