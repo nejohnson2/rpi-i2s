@@ -23,7 +23,7 @@ SD  - BCM 20 (pin 38)
 
 ## Software Requirements
 
-The following is taken from [Paul Creaser's writeup](https://paulcreaser.wordpress.com/2015/11/01/mems-mic-module/).  I've added a bit more how-to description as well as fixed a few typo's in Paul's execution.  They're simple fiexes but for someone who's never compiled a kernal driver, debugging a typo can be annoying.
+The following is taken from [Paul Creaser's writeup](https://paulcreaser.wordpress.com/2015/11/01/mems-mic-module/).  I've added a bit more how-to description as well as fixed a few typo's in Paul's execution.  They're simple fixes but for someone who's never compiled a kernel driver, debugging a typo can be annoying.
 
 ```
 $ cat /etc/os-release
