@@ -130,7 +130,7 @@ $ dmesg | tail
 
 ### Autoload Module on Startup
 
-Here is the [Linux Kernel Module Programming Guide](http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119) where you can read all about modules in Linux.  A great resource but dont dive in too depp!!!
+Here is the [Linux Kernel Module Programming Guide](http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119) where you can read all about modules in Linux.  A great resource but dont dive in too deep!!!
 
 First copy the ```module.ko``` file to the folder ```/lib/modules/<version>```:
 ```
